@@ -1,11 +1,18 @@
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import { ListItemButton, ListItemIcon, ListItemText, Menu, Typography } from "@mui/material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import {
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import menuConfigs from "../../configs/menu.configs";
 import { setUser } from "../../redux/features/userSlice";
-import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
+import BackgroundLetterAvatars from "./Avatar";
 
 const UserMenu = () => {
   const { user } = useSelector((state) => state.user);
@@ -20,12 +27,8 @@ const UserMenu = () => {
     <>
       {user && (
         <>
-          <Typography
-            variant="h6"
-          >
-            {user.displayName}
-          </Typography>
-           <ArrowDropDownCircleIcon
+          <BackgroundLetterAvatars />
+          <ArrowDropDownIcon
             sx={{ cursor: "pointer", userSelect: "none" }}
             onClick={toggleMenu}
           />
@@ -35,6 +38,13 @@ const UserMenu = () => {
             onClose={() => setAnchorEl(null)}
             PaperProps={{ sx: { padding: 0 } }}
           >
+            <h3
+              style={{
+                textAlign: "center",
+              }}
+            >
+              {user.displayName}
+            </h3>
             {menuConfigs.user.map((item, index) => (
               <ListItemButton
                 component={Link}
@@ -43,19 +53,29 @@ const UserMenu = () => {
                 onClick={() => setAnchorEl(null)}
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText disableTypography primary={
-                  <Typography textTransform="uppercase">{item.display}</Typography>
-                } />
+                <ListItemText
+                  disableTypography
+                  primary={
+                    <Typography textTransform="uppercase">
+                      {item.display}
+                    </Typography>
+                  }
+                />
               </ListItemButton>
             ))}
             <ListItemButton
               sx={{ borderRadius: "10px" }}
               onClick={() => dispatch(setUser(null))}
             >
-              <ListItemIcon><LogoutOutlinedIcon /></ListItemIcon>
-              <ListItemText disableTypography primary={
-                <Typography textTransform="uppercase">sign out</Typography>
-              } />
+              <ListItemIcon>
+                <LogoutOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography textTransform="uppercase">sign out</Typography>
+                }
+              />
             </ListItemButton>
           </Menu>
         </>
