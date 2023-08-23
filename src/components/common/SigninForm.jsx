@@ -99,6 +99,19 @@ const SigninForm = ({ switchAuthState }) => {
           <Alert severity="error" variant="outlined">
             {errorMessage}
           </Alert>
+                <table>
+                            <tr>
+                            <th>User Credentials</th>
+                            </tr>
+                            <tr>
+                            <td>Email</td>
+                            <td>user@gmail.com</td>
+                            </tr>
+                            <tr>
+                            <td>Password</td>
+                            <td>123456</td>
+                            </tr>
+                            </table>
         </Box>
       )}
     </Box>
