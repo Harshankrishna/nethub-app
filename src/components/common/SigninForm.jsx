@@ -104,12 +104,12 @@ const SigninForm = ({ switchAuthState }) => {
                             <th>User Credentials</th>
                             </tr>
                             <tr>
-                            <td>Email</td>
-                            <td>user@gmail.com</td>
+                            <td>UserName</td>
+                            <td>Harshankrish</td>
                             </tr>
                             <tr>
                             <td>Password</td>
-                            <td>123456</td>
+                            <td>12345678</td>
                             </tr>
                             </table>
         </Box>
