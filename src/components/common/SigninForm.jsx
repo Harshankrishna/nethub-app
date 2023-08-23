@@ -99,7 +99,10 @@ const SigninForm = ({ switchAuthState }) => {
           <Alert severity="error" variant="outlined">
             {errorMessage}
           </Alert>
-                <table>
+                
+        </Box>
+      )}
+      <table>
                             <tr>
                             <th>User Credentials</th>
                             </tr>
@@ -112,8 +115,6 @@ const SigninForm = ({ switchAuthState }) => {
                             <td>12345678</td>
                             </tr>
                             </table>
-        </Box>
-      )}
     </Box>
   );
 };
