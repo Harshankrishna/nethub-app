@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import menuConfigs from "../../configs/menu.configs";
 import { setUser } from "../../redux/features/userSlice";
+import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 
 const UserMenu = () => {
   const { user } = useSelector((state) => state.user);
@@ -21,11 +22,13 @@ const UserMenu = () => {
         <>
           <Typography
             variant="h6"
-            sx={{ cursor: "pointer", userSelect: "none" }}
-            onClick={toggleMenu}
           >
             {user.displayName}
           </Typography>
+           <ArrowDropDownCircleIcon
+            sx={{ cursor: "pointer", userSelect: "none" }}
+            onClick={toggleMenu}
+          />
           <Menu
             open={Boolean(anchorEl)}
             anchorEl={anchorEl}
